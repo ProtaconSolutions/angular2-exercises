@@ -1,21 +1,21 @@
-import {Component} from "@angular/core";
-import {SearchService} from "./search.service";
-import 'rxjs/add/operator/map';
+import {Component} from '@angular/core';
+import {SearchService} from './search.service';
+import {Observable} from 'rxjs/Rx';
+import {FormControl} from '@angular/forms';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-search',
   templateUrl: 'search.component.html'
 })
 export class SearchComponent {
-  items: any[];
+  items: Observable<any[]>;
+  control:FormControl = new FormControl();
 
   constructor(private searchService: SearchService) {
-  }
-
-  search(term: string) {
-    console.log(term);
-    this.searchService.search(term)
-      .map(result => result.items)
-      .subscribe(items => this.items = items);
+    this.items = this.control.valueChanges
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .switchMap(term => term ? this.searchService.search(term): Observable.of([]));
   }
 }
