@@ -1,0 +1,6 @@
+<h1>Github Repository Search</h1>
+<input type="text" #term placeholder="Search..."/>
+<button (click)="search(term.value)">Search Github</button>
+<li *ngFor="let item of items">
+  <a href="{{item.html_url}}">{{item.full_name}}</a>
+</li>
