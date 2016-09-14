@@ -1,8 +1,23 @@
 <h1>Editing item with index {{index}}</h1>
 
-Name: <input type="text" [(ngModel)]="item.name" /><br/>
-Assignee: <input type="text" [(ngModel)]="item.assignee" />
-
+<form (submit)="form.valid && save()" #form="ngForm" novalidate>
+  Name: <input type="text" name="name" [(ngModel)]="name" required #nameControl="ngModel" />
+  <span *ngIf="nameControl.invalid && nameControl.touched">
+    Name is required!
+  </span>
+  <br/>
+  Assignee: <input
+              type="text"
+              name="assignee"
+              [(ngModel)]="assignee"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              #assigneeControl="ngModel"/>
+  <span *ngIf="assigneeControl.invalid && assigneeControl.touched">
+    Assignee needs to be valid email.
+  </span>
+  <br/>
+  <button type="submit" [disabled]="form.invalid">Save</button>
+</form>
 <br/>
 <button [routerLink]="'../..'">Back</button>
 

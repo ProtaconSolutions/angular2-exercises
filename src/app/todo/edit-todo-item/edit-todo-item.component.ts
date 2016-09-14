@@ -10,17 +10,27 @@ import { TodoService } from '../todo.service';
 })
 export class EditTodoItemComponent implements OnInit {
   index: number;
-  item: TodoItem = {name: '', assignee: '', done: false};
+  item: TodoItem;
 
-  constructor(todoService: TodoService, route: ActivatedRoute) {
+  name: string = '';
+  assignee: string = '';
+
+  constructor(private todoService: TodoService, route: ActivatedRoute) {
     route.params.subscribe((params) => {
       this.index = +params['index'];
-      this.item = todoService.getItemByIndex(this.index);
+      this.item = this.todoService.getItemByIndex(this.index);
+      this.name = this.item.name;
+      this.assignee = this.item.assignee;
     });
   }
 
   ngOnInit() {
 
+  }
+
+  save() {
+    this.item.name = this.name;
+    this.item.assignee = this.assignee;
   }
 
 }
