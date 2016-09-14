@@ -8,7 +8,6 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  private title: string = 'todos works!';
   private items: TodoItem[] = [];
   constructor(todoService: TodoService) {
     this.items = todoService.getItems();
