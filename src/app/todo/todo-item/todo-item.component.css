@@ -1,0 +1,6 @@
+.active {
+  background-color: orange;
+}
+.strikethrough {
+  text-decoration: line-through;
+}

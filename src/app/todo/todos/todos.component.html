@@ -1,0 +1,12 @@
+<p>
+  {{title}}
+</p>
+<p>
+  Todo item count: {{items.length}}
+</p>
+<ul>
+  <app-todo-item [item]="item" [index]="i" *ngFor="let item of items; let i = index;"></app-todo-item>
+</ul>
+
+<input type="text" [(ngModel)]="name" #nameInput />
+<button (click)="addItem(nameInput.value);nameInput.value = '';" [disabled]="nameInput.value.length === 0">Add</button>

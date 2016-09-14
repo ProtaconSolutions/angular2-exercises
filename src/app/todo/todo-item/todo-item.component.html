@@ -1,0 +1,8 @@
+<li
+  [class.active]="item.active"
+  (mouseover)="item.active = true;"
+  (mouseleave)="item.active = false;"
+  [class.strikethrough]="item.done"
+  [routerLink]="[index, 'edit']">
+  {{item.name | capitalize}} (assignee: {{item.assignee}}, done: {{item.done}}) <input type="checkbox" [(ngModel)]="item.done" />
+</li>
