@@ -9,12 +9,14 @@ import { TodoService } from '../todo.service';
 })
 export class TodosComponent implements OnInit {
   private items: TodoItem[] = [];
-  constructor(todoService: TodoService) {
-    this.items = todoService.getItems();
+
+  constructor(private todoService: TodoService) {
   }
 
   ngOnInit() {
+    this.items = this.todoService.getItems();
   }
+
 
   addItem(name: string) {
     this.items.push({name, assignee: '', done: false});
