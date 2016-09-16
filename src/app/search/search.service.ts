@@ -8,9 +8,9 @@ export class SearchService {
 
   }
 
-  search(term:string){
+  search(term: string) {
     return this.http.get(`https://api.github.com/search/repositories?q=${term}`)
-      .map((res:Response) => res.json())
+      .map((res: Response) => res.json())
       .map(result => result.items)
       .catch(err => Observable.of([]));
   }
