@@ -46,8 +46,10 @@ describe('Component: Todos', () => {
     const button = fixture.debugElement.query(By.css('button'));
 
     input.nativeElement.value = 'new item';
+    fixture.detectChanges();
     button.triggerEventHandler('click', null);
 
+    expect(button.nativeElement.disabled).toBe(false);
     expect(spy.calls.any()).toBe(true);
     expect(items.length).toBe(2);
   });

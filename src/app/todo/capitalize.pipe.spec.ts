@@ -4,8 +4,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { CapitalizePipe } from './capitalize.pipe';
 
 describe('Pipe: Capitalize', () => {
-  it('create an instance', () => {
-    let pipe = new CapitalizePipe();
-    expect(pipe).toBeTruthy();
+  let pipe = new CapitalizePipe();
+
+  it('capitalizes the first letter', () => {
+    expect(pipe.transform('test')).toBe('Test');
   });
 });

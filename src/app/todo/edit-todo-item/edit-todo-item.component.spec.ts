@@ -25,7 +25,13 @@ describe('Component: EditTodoItem', () => {
     TestBed.configureTestingModule({
       declarations: [EditTodoItemComponent, FakeRouterLink],
       providers: [
-        {provide: TodoService, useValue: {getItemByIndex: () => {return {name: 'item1', assignee: '', done: false};}}},
+        {
+          provide: TodoService, useValue: {
+          getItemByIndex: () => {
+            return {name: 'item1', assignee: '', done: false};
+          }
+        }
+        },
         {provide: ActivatedRoute, useValue: {params: Observable.of({index: 0})}}
       ],
       imports: [FormsModule]
@@ -37,20 +43,5 @@ describe('Component: EditTodoItem', () => {
   it('should get item name', (() => {
     fixture.detectChanges();
     expect(fixture.componentInstance.name).toBe('item1');
-  }));
-
-  it('does not allow to save if name is empty and shows warning', (() => {
-  }));
-
-  it('does not allow to save if email address is empty and shows warning', (() => {
-  }));
-
-  it('does not allow to save if email address is invalid and shows warning', (() => {
-  }));
-
-  it('allows to save if name is not empty', (() => {
-  }));
-
-  it('allows to save if email address is valid', (() => {
   }));
 });
