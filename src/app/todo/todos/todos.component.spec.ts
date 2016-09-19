@@ -31,13 +31,13 @@ describe('Component: Todos', () => {
     fixture = TestBed.createComponent(TodosComponent);
   });
 
-  it('does not allow to click button if no input text', () => {
+  it('does not allow to click add button if no input text', () => {
     fixture.detectChanges();
     const button = fixture.debugElement.query(By.css('button'));
     expect(button.nativeElement.disabled).toBe(true);
   });
 
-  it('should add new items', () => {
+  it('should add new items to array with add button', () => {
     const todoService = fixture.debugElement.injector.get(TodoService);
     const spy = spyOn(todoService, 'getItems').and.returnValue(items);
     fixture.detectChanges();

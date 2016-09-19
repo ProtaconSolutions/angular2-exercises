@@ -12,7 +12,7 @@ export class TodoItemComponent implements OnInit {
   index: number;
 
   @Input()
-  item: TodoItem;
+  data: TodoItem;
 
   constructor() { }
 

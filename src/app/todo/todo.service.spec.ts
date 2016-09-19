@@ -14,11 +14,11 @@ describe('Service: Todo', () => {
     expect(service.getItems().length).toBe(2);
   }));
 
-  it('should return correct first item name', inject([TodoService], (service: TodoService) => {
+  it('should return correct first data name', inject([TodoService], (service: TodoService) => {
     expect(service.getItems()[0].name).toBe('Do the laundry');
   }));
 
-  it('should return correct item by index', () => {
+  it('should return correct data by index', () => {
     const service: TodoService = new TodoService();
     expect(service.getItemByIndex(1)).toEqual({name: 'Clean my room', assignee: '', done: false});
   });

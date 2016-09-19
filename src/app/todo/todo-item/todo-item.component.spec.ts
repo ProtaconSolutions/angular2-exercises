@@ -28,10 +28,10 @@ describe('Component: TodoItem', () => {
     });
 
     fixture = TestBed.createComponent(TodoItemComponent);
-    item = fixture.componentInstance.item = {name: 'Test item', assignee: '', done: false};
+    item = fixture.componentInstance.data = {name: 'test item', assignee: '', done: false};
   });
 
-  it('should show item name', () => {
+  it('should capitalize test item name', () => {
     fixture.detectChanges();
 
     expect(fixture.debugElement.nativeElement.textContent).toContain('Test item');
@@ -41,7 +41,7 @@ describe('Component: TodoItem', () => {
     item.done = true;
     fixture.detectChanges();
 
-    expect(fixture.debugElement.nativeElement.textContent).toContain('done: true');
+    expect(fixture.debugElement.nativeElement.textContent).toContain('done: yes');
   });
 
   it('should change done status when checkbox is clicked', () => {
@@ -51,6 +51,6 @@ describe('Component: TodoItem', () => {
     checkbox.triggerEventHandler('ngModelChange', 'true');
     fixture.detectChanges();
 
-    expect(fixture.debugElement.nativeElement.textContent).toContain('done: true');
+    expect(fixture.debugElement.nativeElement.textContent).toContain('done: yes');
   });
 });

@@ -1,8 +1,8 @@
 <li
-  [class.active]="item.active"
-  (mouseover)="item.active = true;"
-  (mouseleave)="item.active = false;"
-  [class.strikethrough]="item.done">
-  <span [routerLink]="[index, 'edit']">{{item.name | capitalize}}</span>
-  (assignee: {{item.assignee}}, done: {{item.done}}) <input type="checkbox" [(ngModel)]="item.done" />
+  [class.active]="data.active"
+  (mouseover)="data.active = true;"
+  (mouseleave)="data.active = false;"
+  [class.strikethrough]="data.done">
+  <span [routerLink]="[index, 'edit']">{{data.name | capitalize}}</span>
+  (assignee: {{data.assignee}}, done: {{data.done ? 'yes' : 'no'}}) <input type="checkbox" [(ngModel)]="data.done" />
 </li>
