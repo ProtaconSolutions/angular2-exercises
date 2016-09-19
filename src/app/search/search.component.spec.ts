@@ -1,4 +1,4 @@
-import {TestBed} from '@angular/core/testing';
+import {TestBed, async} from '@angular/core/testing';
 import {SearchComponent} from './search.component';
 import {SearchService} from './search.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -47,7 +47,7 @@ describe('Component: Search', () => {
     expect(spy.calls.count()).toBe(1);
   }));
 
-  it('should not invoke service with same input', fakeAsync(() => {
+  it('should not invoke service with the same input', fakeAsync(() => {
     fixture.detectChanges();
     fixture.componentInstance.control.setValue('search term');
     tick(500);
@@ -56,7 +56,7 @@ describe('Component: Search', () => {
     expect(spy.calls.count()).toBe(1);
   }));
 
-  it('should not invoke service with empty input', fakeAsync(() => {
+  it('should not invoke service with an empty input', fakeAsync(() => {
     fixture.detectChanges();
     fixture.componentInstance.control.setValue('');
     tick(500);
