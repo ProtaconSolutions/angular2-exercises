@@ -1,4 +1,4 @@
-<h1>Github Repository Search</h1>
+<h1>GitHub Repository Search</h1>
 <input type="text" #term [formControl]="control" placeholder="Search..."/>
 <li *ngFor="let item of items | async">
   <a href="{{item.html_url}}">{{item.full_name}}</a>
